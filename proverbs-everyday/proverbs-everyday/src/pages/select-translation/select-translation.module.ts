@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
 import { SelectTranslation } from './select-translation';
 
 @NgModule({
@@ -7,7 +7,7 @@ import { SelectTranslation } from './select-translation';
     SelectTranslation,
   ],
   imports: [
-    IonicModule.forChild(SelectTranslation),
+    IonicPageModule.forChild(SelectTranslation),
   ],
   exports: [
     SelectTranslation

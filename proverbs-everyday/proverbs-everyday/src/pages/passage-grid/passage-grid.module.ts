@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
 import { PassageGrid } from './passage-grid';
 
 @NgModule({
@@ -7,7 +7,7 @@ import { PassageGrid } from './passage-grid';
     PassageGrid,
   ],
   imports: [
-    IonicModule.forChild(PassageGrid),
+    IonicPageModule.forChild(PassageGrid),
   ],
   exports: [
     PassageGrid

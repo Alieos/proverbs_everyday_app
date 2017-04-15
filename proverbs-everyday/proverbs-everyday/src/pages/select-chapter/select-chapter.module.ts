@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
 import { SelectChapter } from './select-chapter';
 
 @NgModule({
@@ -7,7 +7,7 @@ import { SelectChapter } from './select-chapter';
     SelectChapter,
   ],
   imports: [
-    IonicModule.forChild(SelectChapter),
+    IonicPageModule.forChild(SelectChapter),
   ],
   exports: [
     SelectChapter

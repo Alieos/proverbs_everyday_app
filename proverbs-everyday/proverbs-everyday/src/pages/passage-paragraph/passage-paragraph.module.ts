@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
 import { PassageParagraph } from './passage-paragraph';
 
 @NgModule({
@@ -7,7 +7,7 @@ import { PassageParagraph } from './passage-paragraph';
     PassageParagraph,
   ],
   imports: [
-    IonicModule.forChild(PassageParagraph),
+    IonicPageModule.forChild(PassageParagraph),
   ],
   exports: [
     PassageParagraph
