@@ -1,3 +1,0 @@
-cls
-
-call ionic serve
