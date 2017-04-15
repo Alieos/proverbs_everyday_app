@@ -1,0 +1,13 @@
+== Notes for Ionic 3: ==
+
+1) Lazy Loading:
+*Each Ionic page comes with its own module.ts file.
+*Only load stuff required by the particular module instead of loading everything in app.module.ts
+
+Enable lazy loading:
+    1. Open up <page>.module.ts file
+    2. (line 2) Change "IonicModule" to "IonicPageModule"
+    3. (line 10) Change "IonicModule.forChild(<page>)" to "IonicPageModule.forChild(<page>)"
+
+2) Angular RangeError Fix:
+Ensure that resources are only loaded once in a module. E.g. If loaded in the .ts file, don't load the resource in the module.ts file.
