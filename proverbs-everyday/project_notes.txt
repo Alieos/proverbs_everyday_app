@@ -1,0 +1,20 @@
+Models
+1) Translation
+- name: string
+- abbr: string
+- copyright: string
+
+2) Chapter
+- paragraph: string
+- grid: string[]
+
+
+Services
+1) TranslationService
+- GetAllTranslations: Translation[]
+- GetTranslation(index: number): Translation
+
+2) ChapterService
+- GetAllChapters: Chapter[]
+- GetParagraph(chapterNo: number): string
+- GetGrid(chapterNo: number): string[]
