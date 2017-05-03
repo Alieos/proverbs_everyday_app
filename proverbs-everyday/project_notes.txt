@@ -1,20 +1,24 @@
-Models
+Interfaces
 1) Translation
+- id: number
 - name: string
 - abbr: string
 - copyright: string
+- chapters: Chapter[]
 
 2) Chapter
-- paragraph: string
-- grid: string[]
+- id: number
+- chapterPassage: string
+- grid: Verse[]
+
+3) Verse
+- id: number,
+- versePassage: string
 
 
 Services
-1) TranslationService
-- GetAllTranslations: Translation[]
-- GetTranslation(index: number): Translation
-
-2) ChapterService
-- GetAllChapters: Chapter[]
-- GetParagraph(chapterNo: number): string
-- GetGrid(chapterNo: number): string[]
+1) SettingsService:
+- GetSettings
+- SetMainTrsnlation
+- SetTheme
+- SetFontSize
