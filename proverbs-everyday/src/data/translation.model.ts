@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 
-import { ChapterModel } from '../chapter.model';
+import { ChapterModel } from './chapter.model';
 
 @NgModule({
     declarations: [
