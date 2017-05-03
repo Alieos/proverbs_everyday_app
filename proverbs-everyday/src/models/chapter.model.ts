@@ -18,7 +18,7 @@ import { VerseModel } from './verse.model';
 export class ChapterModel {
 
     constructor(
-        public id: number,
+        public chapterNo: number,
         public chapterPassage: string,
         public verses: VerseModel[]
     ) {}

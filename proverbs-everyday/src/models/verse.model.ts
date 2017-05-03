@@ -16,7 +16,7 @@ import { IonicModule } from 'ionic-angular';
 export class VerseModel {
 
     constructor(
-        id: number,
+        verseNo: number,
         versePassage: string
     ) {}
 
