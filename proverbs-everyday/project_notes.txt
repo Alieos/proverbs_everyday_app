@@ -1,0 +1,24 @@
+Models
+1) Translation
+- id: number
+- name: string
+- abbr: string
+- copyright: string
+- chapters: Chapter[]
+
+2) Chapter
+- id: number
+- chapterPassage: string
+- grid: Verse[]
+
+3) Verse
+- id: number,
+- versePassage: string
+
+
+Services
+1) SettingsService:
+- GetSettings
+- SetMainTrsnlation
+- SetTheme
+- SetFontSize
