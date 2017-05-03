@@ -21,4 +21,4 @@ export class MenuItemModel {
         public iconName:string
     ) {}
 
-} //end MenuItem class
+} //end MenuItemModel class
