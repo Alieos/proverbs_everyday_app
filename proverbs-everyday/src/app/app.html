@@ -6,12 +6,23 @@
     </ion-header>
     <ion-content>
         <ion-list>
-            <button *ngFor="let menuItem of menuItems; let i = index" ion-item (click)="gotoPage(menuItem.pageName)">
-                <ion-icon name="{{ menuItem.iconName }}" item-left></ion-icon>
+            <button
+                    *ngFor="let menuItem of menuItems; let i = index"
+                    ion-item
+                    menuClose
+                    (click)="gotoPage(menuItem.pageName)">
+                <ion-icon
+                        name="{{ menuItem.iconName }}"
+                        item-left></ion-icon>
                 {{ menuItem.displayText }}
             </button>
-            <button ion-item menuClose detail-none>
-                <ion-icon name="close" item-left></ion-icon>
+            <button
+                    ion-item
+                    menuClose
+                    detail-none>
+                <ion-icon
+                        name="close"
+                        item-left></ion-icon>
                 Close Menu
             </button>
         </ion-list>
