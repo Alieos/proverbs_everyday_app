@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import translations from '../../data/passages';
+import passages from '../../data/passages';
 import { Translation } from '../../data/translation.interface';
 
 @IonicPage()
@@ -17,12 +17,12 @@ export class SelectTranslation {
   }
 
   ngOnInit() {
-    this.translations = translations;
+    this.translations = passages;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectTranslation');
-    console.log(translations);
+    console.log(passages);
   }
 
   gotoChapter(translation: Translation) {
