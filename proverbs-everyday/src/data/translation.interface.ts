@@ -1,9 +1,11 @@
+import { Chapter } from './chapter.interface';
+
 export interface Translation {
 
     id:         number;
     name:       string;
     abbr:       string;
     copyright:  string;
-    chapters:   any; //TODO: implement chapter interface
+    chapters:   Chapter[];
 
 } //end Translation interface
