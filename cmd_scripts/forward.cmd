@@ -1,3 +1,3 @@
-cd "..\proverbs-everyday";
+cd "..\proverbs-everyday"
 
 cls

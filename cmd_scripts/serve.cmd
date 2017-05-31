@@ -1,4 +1,4 @@
-cd "..\proverbs-everday";
+cd "..\proverbs-everyday"
 
 cls
 
