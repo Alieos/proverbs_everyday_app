@@ -14,5 +14,22 @@
 
 <ion-content padding>
     <h1>{{ _translation.name }} ({{ _translation.abbr }})</h1>
-    
+    <ion-grid>
+        <ion-row>
+            <ion-col
+                class="col-chapterNo"
+                *ngFor="let chapter of _chapters"
+                col-2
+                text-center>
+                <button
+                    ion-button
+                    color="dark"
+                    clear
+                    full
+                    (click)="gotoPassage(_translation.id, chapter.chapterNo)">
+                    {{ chapter.chapterNo }}
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
