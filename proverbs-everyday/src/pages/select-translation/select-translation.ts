@@ -4,16 +4,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import passages from '../../data/passages';
 import { Translation } from '../../data/translation.interface';
 
+import { PassagesService } from '../../services/passages.service';
+
 @IonicPage()
 @Component({
   selector: 'page-select-translation',
   templateUrl: 'select-translation.html',
+  providers: [PassagesService]
 })
 export class SelectTranslation {
   translations: Translation[];
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              private _passagesService: PassagesService) {
   }
 
   ngOnInit() {
@@ -26,7 +30,8 @@ export class SelectTranslation {
   }
 
   gotoChapter(translation: Translation) {
-    console.log('Translation: ', translation.id, translation.abbr);
+    this._passagesService.selectedTranslationId = translation.id;
+    this.navCtrl.push('SelectChapter');
   }
 
 } //end SelectTranslation class

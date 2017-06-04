@@ -3,7 +3,7 @@ import passages from '../data/passages';
 import { Translation } from '../data/translation.interface';
 import { Chapter } from '../data/chapter.interface';
 
-export class TranslationService {
+export class PassagesService {
 
     private _selectedTranslationId: number = 5;
     get selectedTranslationId(): number {
@@ -11,6 +11,7 @@ export class TranslationService {
     }
     set selectedTranslationId(theSelectedTranslationId: number) {
         this._selectedTranslationId = theSelectedTranslationId;
+        this._selectedTranslation = this.getTranslationBySelectedTranslationId();
     }
 
     private _selectedTranslation: Translation = null;
@@ -38,4 +39,4 @@ export class TranslationService {
         return this._selectedTranslation.chapters.slice();
     }
 
-} //end TranslationService class
+} //end PassagesService class
