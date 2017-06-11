@@ -1,0 +1,3 @@
+cd "..\proverbs-everyday"
+
+cls
