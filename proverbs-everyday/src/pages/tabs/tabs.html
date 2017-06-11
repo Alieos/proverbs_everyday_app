@@ -1,17 +1,10 @@
-<ion-header>
-
-    <ion-navbar>
-        <ion-buttons start>
-            <button ion-button menuToggle>
-                <ion-icon name="menu"></ion-icon>
-            </button>
-        </ion-buttons>
-        <ion-title>Chapter #</ion-title>
-    </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding #myContent>
-    <h1 text-center>Tabs Page</h1>
-</ion-content>
+<ion-tabs>
+    <ion-tab
+            [root]="tabParagraph"
+            tabTitle="Paragraph"
+            tabIcon="document"></ion-tab>
+    <ion-tab
+            [root]="tabGrid"
+            tabTitle="Grid"
+            tabIcon="grid"></ion-tab>
+</ion-tabs>

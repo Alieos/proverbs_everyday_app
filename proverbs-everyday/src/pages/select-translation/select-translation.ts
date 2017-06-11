@@ -24,13 +24,13 @@ export class SelectTranslation {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectTranslation');
-    console.log(passages);
+    //console.log(passages);
   }
 
   gotoChapter(translation: Translation) {
     this._passagesService.selectedTranslationId = translation.id;
-    console.log(this._passagesService.selectedTranslationId);
-    console.log(this._passagesService.selectedTranslation);
+    //console.log(this._passagesService.selectedTranslationId);
+    //console.log(this._passagesService.selectedTranslation);
     this.navCtrl.push('SelectChapter');
   }
 

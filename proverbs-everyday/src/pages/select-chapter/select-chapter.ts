@@ -28,7 +28,8 @@ export class SelectChapter {
   }
 
   gotoPassage(translationId: number, chapterNo: number) {
-    console.log('translation id: ' + translationId, 'chapter no: ' + chapterNo);
+    //console.log('translation id: ' + translationId, 'chapter no: ' + chapterNo);
+    this.navCtrl.push('Tabs');
   }
 
 } //end SelectChapter
