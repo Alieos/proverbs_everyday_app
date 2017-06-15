@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Translation } from '../../data/translation.interface';
 import { Chapter } from '../../data/chapter.interface';
-import { Passages } from '../../providers/passages';
+import { PassagesService } from '../../providers/passages.service';
 
 @IonicPage()
 @Component({
@@ -17,7 +17,7 @@ export class SelectChapter {
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
-      private _passagesService: Passages) {
+      private _passagesService: PassagesService) {
     this._translation = this._passagesService.selectedTranslation;
     console.log(this._passagesService.selectedTranslationId);
     this._chapters = this._translation.chapters;
@@ -28,7 +28,8 @@ export class SelectChapter {
   }
 
   gotoPassage(translationId: number, chapterNo: number) {
-    //console.log('translation id: ' + translationId, 'chapter no: ' + chapterNo);
+    this._passagesService.selectedTranslationId = translationId;
+    this._passagesService.selectedChapterNo = chapterNo;
     this.navCtrl.push('Tabs');
   }
 

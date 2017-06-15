@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import passages from '../../data/passages';
 import { Translation } from '../../data/translation.interface';
-import { Passages } from '../../providers/passages';
+import { PassagesService } from '../../providers/passages.service';
 
 @IonicPage()
 @Component({
@@ -15,7 +15,7 @@ export class SelectTranslation {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private _passagesService: Passages) {
+              private _passagesService: PassagesService) {
   }
 
   ngOnInit() {

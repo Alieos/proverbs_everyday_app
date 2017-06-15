@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Translation } from '../data/translation.model';
-import { Chapter } from '../data/chapter.model';
+import { Translation } from '../data/translation.interface';
+import { Chapter } from '../data/chapter.interface';
 
 import passages from '../data/passages';
 
