@@ -1,68 +1,89 @@
 import { Injectable } from '@angular/core';
 import { Translation } from '../data/translation.interface';
 import { Chapter } from '../data/chapter.interface';
+import { Verse } from '../data/verse.interface';
 
 import passages from '../data/passages';
 
 @Injectable()
 export class PassagesService {
 
-    // Variables -----------------------------------------------------------------------
-    private _selectedTranslationId:number = 5;
-    get selectedTranslationId():number {
+    // === Variables ===================================================================
+    private _selectedTranslationId: number = 5;
+    get selectedTranslationId(): number {
         return this._selectedTranslationId;
     }
-    set selectedTranslationId(theSelectedTranslationId:number) {
+    set selectedTranslationId(theSelectedTranslationId: number) {
         this._selectedTranslationId = theSelectedTranslationId;
         this._selectedTranslation = this.getTranslationBySelectedTranslationId();
     }
 
-    private _selectedTranslation:Translation = null;
-    get selectedTranslation():Translation {
+    private _selectedTranslation: Translation = null;
+    get selectedTranslation(): Translation {
         return this._selectedTranslation;
     }
 
+    private _selectedChapterNo: number = 1;
+    get selectedChapterNo(): number {
+        return this._selectedChapterNo;
+    }
+    set selectedChapterNo(theSelectedChapterNo: number) {
+        this._selectedChapterNo = theSelectedChapterNo;
+    }
+
+    // === Functions ===================================================================
     constructor() {
         this._selectedTranslation = this.getTranslationBySelectedTranslationId();
     }
 
-    private _selectedChapterNo:number = 1;
-    get selectedChapterNo():number {
-        return this._selectedChapterNo;
-    }
-    set selectedChapterNo(theSelectedChapterNo:number) {
-        this._selectedChapterNo = theSelectedChapterNo;
-    }
-
-    // Functions -----------------------------------------------------------------------
-    getTranslationBySelectedTranslationId():Translation {
+    // --- Selected --------------------------------------------------------------------
+    getTranslationBySelectedTranslationId(): Translation {
         return passages.find((translationEl: Translation) => {
             return this._selectedTranslationId == translationEl.id;
         });
     }
 
-    getTranslationById(translationId:number):Translation {
-        return passages.find((translationEl:Translation) => {
-            return translationId == translationEl.id;
-        });
-    }
-
-    getSelectedTranslationChapters():Chapter[] {
+    getSelectedTranslationChapters(): Chapter[] {
         return this._selectedTranslation.chapters.slice();
     }
 
-    getSelectedChapter():Chapter {
+    getSelectedChapter(): Chapter {
         var selectedChapters: Chapter[] = this.getSelectedTranslationChapters();
         return selectedChapters.find((chapterEl: Chapter) => {
             return this._selectedChapterNo == chapterEl.chapterNo;
         });
     }
+
+    getSelectedVerses(): Verse[] {
+        var selectedChapter = this.getSelectedChapter();
+        return selectedChapter.versePassages;
+    }
+
+    // --- Find Functions --------------------------------------------------------------
+    findTranslation(translationId: number): Translation {
+        return passages.find((translationEl: Translation) => {
+            return translationId == translationEl.id;
+        });
+    }
+
+    findChapters(translationId: number): Chapter[] {
+        var translation: Translation = this.findTranslation(translationId);
+        return translation.chapters;
+    }
     
-    getSelectedTranslationChapter(chapterNo: number):Chapter {
-        var selectedChapters: Chapter[] = this.getSelectedTranslationChapters();
-        return selectedChapters.find((chapterEl: Chapter) => {
+    findChapter(translationId: number, chapterNo: number): Chapter {
+        var translation: Translation = this.findTranslation(translationId);
+        return translation.chapters.find((chapterEl: Chapter) => {
             return chapterNo == chapterEl.chapterNo;
         });
+    }
+
+    findVerses(translationId: number, chapterNo: number): Verse[] {
+        var translation: Translation = this.findTranslation(translationId);
+        var chapter: Chapter = translation.chapters.find((chapterEl: Chapter) => {
+            return chapterNo == chapterEl.chapterNo;
+        });
+        return chapter.versePassages;
     }
 
 } //end PassagesService class
