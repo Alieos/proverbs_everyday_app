@@ -17,8 +17,6 @@ export class PassageParagraph {
   private _selectedTranslation: Translation = null;
   private _selectedChapter: Chapter = null;
 
-  private _testHtml: string = "<h4>Lorem Ipsum</h4><p>Lorem Ipsum</p>";
-
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private _passagesService: PassagesService) {
