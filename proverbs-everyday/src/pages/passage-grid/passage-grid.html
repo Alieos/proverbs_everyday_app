@@ -6,12 +6,25 @@
                 <ion-icon name="menu"></ion-icon>
             </button>
         </ion-buttons>
-        <ion-title>Chapter #</ion-title>
+        <ion-title>Chapter {{ _selectedChapter.chapterNo }}</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <h1 text-center>Passage, Grid view page</h1>
+    <h1>Chapter {{ _selectedChapter.chapterNo }}</h1>
+    <h3>{{ _selectedTranslation.name }} ({{ _selectedTranslation.abbr }})</h3>
+    <br/>
+
+    <ion-grid class="verses-grid">
+        <ion-row *ngFor="let verse of _versePassages">
+            <ion-col col-1 text-right>
+                <b>{{ verse.verseNo }}</b>
+            </ion-col>
+            <ion-col col-11 text-left>
+                {{ verse.versePassage }}
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
