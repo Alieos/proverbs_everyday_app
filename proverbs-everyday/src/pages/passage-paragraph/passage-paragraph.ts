@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage,
+  NavController,
+  NavParams } from 'ionic-angular';
+
+import { PassagesService } from '../../providers/passages.service';
+import { Translation } from '../../data/translation.interface';
+import { Chapter } from '../../data/chapter.interface';
 
 @IonicPage()
 @Component({
@@ -8,7 +14,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PassageParagraph {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private _selectedTranslation: Translation = null;
+  private _selectedChapter: Chapter = null;
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private _passagesService: PassagesService) {
+      this._selectedTranslation = this._passagesService.selectedTranslation;
+      this._selectedChapter = this._passagesService.getSelectedChapter();
   }
 
   ionViewDidLoad() {

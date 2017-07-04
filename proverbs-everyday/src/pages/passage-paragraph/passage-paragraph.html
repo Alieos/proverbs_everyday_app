@@ -6,12 +6,16 @@
                 <ion-icon name="menu"></ion-icon>
             </button>
         </ion-buttons>
-        <ion-title>Chapter #</ion-title>
+        <ion-title>Chapter {{ _selectedChapter.chapterNo }}</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <h1 text-center>Passage, Paragraph view page</h1>
+    <h1>Chapter {{ _selectedChapter.chapterNo }}</h1>
+    <h3>{{ _selectedTranslation.name }} ({{ _selectedTranslation.abbr }})</h3>
+    <br/>
+
+    <div class="chapter-passage" [innerHTML]="_selectedChapter.chapterPassage"></div>
 </ion-content>

@@ -11,6 +11,9 @@ import { IonicPage,
 })
 export class Tabs {
 
+  tabParagraph = 'PassageParagraph';
+  tabGrid = 'PassageGrid';
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams) {}

@@ -4,7 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { Passages } from '../providers/passages';
+import { PassagesService } from '../providers/passages.service';
 
 import { MyApp } from './app.component';
 
@@ -24,7 +24,7 @@ import { MyApp } from './app.component';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Passages
+    PassagesService
   ]
 })
 export class AppModule {}
