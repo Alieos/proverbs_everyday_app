@@ -7,6 +7,7 @@ import {
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { PassagesService } from '../providers/passages.service';
 import { MenuItemModel } from '../models/menu-item.model';
 
 @Component({
@@ -17,7 +18,6 @@ export class MyApp {
   @ViewChild('nav') navCtrl: NavController;
 
   menuItems = [
-    new MenuItemModel('Tabs', 'Today\'s Proverb', 'quote'),
     new MenuItemModel('SelectTranslation', 'Bible Translations', 'book'),
     new MenuItemModel('Settings', 'Settings', 'settings')
   ];
@@ -25,17 +25,30 @@ export class MyApp {
   constructor(platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
-    private menuCtrl: MenuController ) {
+    private _passagesService: PassagesService,
+    private _menuCtrl: MenuController ) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    this.selectTodaysChapter();
+  }
+
+  todaysChapterHandler() {
+    this.selectTodaysChapter();
+    this.navCtrl.setRoot('Tabs');
   }
 
   gotoPage(pageName:string) {
     //this.navCtrl.push(pageName);
     this.navCtrl.setRoot(pageName);
-    this.menuCtrl.close();
+    this._menuCtrl.close();
+  }
+
+  private selectTodaysChapter() {
+    let today = new Date();
+    this._passagesService.selectedChapterNo = today.getDate();
   }
 
 } //end MyApp class

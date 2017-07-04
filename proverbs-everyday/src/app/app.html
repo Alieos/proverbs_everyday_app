@@ -6,6 +6,10 @@
     </ion-header>
     <ion-content>
         <ion-list>
+            <button ion-item menuClose (click)="todaysChapterHandler()">
+                <ion-icon name="quote" item-left></ion-icon>
+                Today's Proverb
+            </button>
             <button
                     *ngFor="let menuItem of menuItems; let i = index"
                     ion-item
