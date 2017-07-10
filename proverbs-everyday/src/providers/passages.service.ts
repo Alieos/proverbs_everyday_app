@@ -32,12 +32,13 @@ export class PassagesService {
         // the total no of chapters in the selected translation
         let numOfChapters: number = this.findChapters(this._selectedTranslationId).length;
         if(theSelectedChapterNo < 1) {
-            theSelectedChapterNo = 1;
-            console.log("Warning! selectedChapterNo (" + theSelectedChapterNo + ") must be greater than 1.");
+            theSelectedChapterNo = numOfChapters;
+            console.log('Warning! selectedChapterNo (' + theSelectedChapterNo + ') must be greater than 1.');
         } else if(theSelectedChapterNo >= (numOfChapters + 1)) {
-            theSelectedChapterNo = (numOfChapters + 1);
-            console.log("Warning! selectedChapterNo (" + theSelectedChapterNo + "exceeded total chapters [" + numOfChapters + "].");
+            theSelectedChapterNo = 1;
+            console.log('Warning! selectedChapterNo (' + theSelectedChapterNo + ') exceeded total chapters [' + numOfChapters + '].');
         }
+        console.log('selectedChapterNo ', theSelectedChapterNo);
         this._selectedChapterNo = theSelectedChapterNo;
     }
 

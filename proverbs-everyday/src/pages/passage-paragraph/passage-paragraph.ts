@@ -28,4 +28,14 @@ export class PassageParagraph {
     console.log('ionViewDidLoad PassageParagraph');
   }
 
+  previousChapterNo() {
+    --this._passagesService.selectedChapterNo;
+    this._selectedChapter = this._passagesService.getSelectedChapter();
+  }
+
+  nextChapterNo() {
+    ++this._passagesService.selectedChapterNo;
+    this._selectedChapter = this._passagesService.getSelectedChapter();
+  }
+
 } //end PassageParagraph page

@@ -11,13 +11,27 @@
 
 
 <ion-content padding>
+    <ion-fab top right edge>
+        <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+
+        <ion-fab-list>
+            <button ion-fab color="danger" (click)="previousChapterNo()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+
+            <button ion-fab color="secondary" (click)="nextChapterNo()">
+                <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+        </ion-fab-list>
+    </ion-fab>
+
     <h1>Chapter {{ _selectedChapter.chapterNo }}</h1>
     <h3>{{ _selectedTranslation.name }} ({{ _selectedTranslation.abbr }})</h3>
     <br/>
 
     <ion-grid class="verses-grid">
         <ion-row *ngFor="let verse of _versePassages">
-            <ion-col col-1 text-right>
+            <ion-col col-1 text-center>
                 <b>{{ verse.verseNo }}</b>
             </ion-col>
             <ion-col col-11 text-left>

@@ -23,12 +23,26 @@ export class PassageGrid {
     public navParams: NavParams,
     private _passagesService: PassagesService) {
       this._selectedTranslation = this._passagesService.selectedTranslation;
-      this._selectedChapter = this._passagesService.getSelectedChapter();
-      this._versePassages = this._passagesService.getSelectedVerses();
+      this.reloadContent();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PassageGrid');
+  }
+
+  previousChapterNo() {
+    --this._passagesService.selectedChapterNo;
+    this.reloadContent();
+  }
+
+  nextChapterNo() {
+    ++this._passagesService.selectedChapterNo;
+    this.reloadContent();
+  }
+
+  private reloadContent() {
+    this._selectedChapter = this._passagesService.getSelectedChapter();
+    this._versePassages = this._passagesService.getSelectedVerses();
   }
 
 } //end PassageGrid class
