@@ -31,10 +31,10 @@ export class PassagesService {
         // check if selected chapter no is between 1 and
         // the total no of chapters in the selected translation
         let numOfChapters: number = this.findChapters(this._selectedTranslationId).length;
-        if(theSelectedChapterNo < 1) {
+        if (theSelectedChapterNo < 1) {
             theSelectedChapterNo = numOfChapters;
             console.log('Warning! selectedChapterNo (' + theSelectedChapterNo + ') must be greater than 1.');
-        } else if(theSelectedChapterNo >= (numOfChapters + 1)) {
+        } else if (theSelectedChapterNo >= (numOfChapters + 1)) {
             theSelectedChapterNo = 1;
             console.log('Warning! selectedChapterNo (' + theSelectedChapterNo + ') exceeded total chapters [' + numOfChapters + '].');
         }
